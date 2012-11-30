@@ -3,7 +3,8 @@ import zlib
 
 from osmread.parser import Parser
 from osmread.elements import Node, Way, Relation, RelationMember
-from osmread.protobuf.osm_pb2 import BlobHeader, Blob, HeaderBlock, PrimitiveBlock
+from osmread.protobuf.osmformat_pb2 import HeaderBlock, PrimitiveBlock
+from osmread.protobuf.fileformat_pb2 import BlobHeader, Blob
 
 
 class PBFException(Exception):
