@@ -1,6 +1,5 @@
 from lxml.etree import iterparse
 from datetime import datetime
-from time import mktime
 
 from osmread.parser import Parser
 from osmread.elements import Node, Way, Relation, RelationMember
