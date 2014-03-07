@@ -2,7 +2,7 @@ from lxml.etree import iterparse
 from datetime import datetime
 
 from osmread.parser import Parser
-from osmread.elements import Node, Way, Relation, RelationMember
+from osmread.elements import Node, Way, Relation, RelationMember, TYPE_WAY, TYPE_NODE, TYPE_RELATION
 
 
 class XmlParser(Parser):
@@ -81,9 +81,9 @@ class XmlParser(Parser):
                         RelationMember(
                             unicode(attrs['role']),
                             {
-                                'node': Node,
-                                'way': Way,
-                                'relation': Relation
+                                'node': TYPE_NODE,
+                                'way': TYPE_WAY,
+                                'relation': TYPE_RELATION
                             }[attrs['type']],
                             long(attrs['ref'])
                         )

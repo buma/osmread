@@ -32,7 +32,7 @@ All `Node`, `Way` and `Relation` instances have `id`, `version`, `changeset`,
 `lat`. Way nodes stored in `nodes`, relation members in `members`.
 
 Relation members are array of tuples (`role`, `class`, `id`), where `class` is
-`Node`, `Way` or `Relation`.
+TYPE_NODE(0), TYPE_WAY(1) or TYPE_RELATION(2).
 
 ## PBF implementation note
 
