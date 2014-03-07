@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-__einfo = ('id', 'version', 'changeset', 'timestamp', 'uid')
+__einfo = ('id',)
 
 Node = namedtuple('Node', __einfo + ('tags', 'lon', 'lat'))
 Way = namedtuple('Way', __einfo + ('tags', 'nodes', ))

@@ -1,5 +1,8 @@
 # Osmread
 
+Branch no_changeset parses files which have no version, changeset, timestamp and uid.
+This happens when using XAPI.
+
 Osmread is a simple library for reading OpenStreetMap data files in Python. It
 supports XML and PBF file formats as inputs. It is not designed for fast
 processing of big planet dumps but can be used for simple processing of smaller
@@ -27,8 +30,8 @@ Simply run `setup.py` or use `pip` or `easy_install`.
 
     print "%d highways found" % highway_count
 
-All `Node`, `Way` and `Relation` instances have `id`, `version`, `changeset`,
-`timestamp`, `uid` and `tags` attributes. Node coordinates stored in `lon` and
+All `Node`, `Way` and `Relation` instances have `id` and `tags`
+ attributes. Node coordinates stored in `lon` and
 `lat`. Way nodes stored in `nodes`, relation members in `members`.
 
 Relation members are array of tuples (`role`, `class`, `id`), where `class` is

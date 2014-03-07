@@ -17,10 +17,6 @@ class XmlParser(Parser):
         # common
         _type = None
         _id = None
-        _version = None
-        _changeset = None
-        _timestamp = None
-        _uid = None
         _tags = None
         # node only
         _lon = None
@@ -36,27 +32,6 @@ class XmlParser(Parser):
                 attrs = elem.attrib
                 if elem.tag in ('node', 'way', 'relation'):
                     _id = long(attrs['id'])
-                    _version = int(attrs['version'])
-                    _changeset = int(attrs['changeset'])
-                    # TODO: improve timestamp parsing - dateutil too slow
-                    _tstxt = attrs['timestamp']
-                    _timestamp = int((
-                        datetime(
-                            year=int(_tstxt[0:4]),
-                            month=int(_tstxt[5:7]),
-                            day=int(_tstxt[8:10]),
-                            hour=int(_tstxt[11:13]),
-                            minute=int(_tstxt[14:16]),
-                            second=int(_tstxt[17:19]),
-                            tzinfo=None
-                        ) - datetime(
-                            year=1970,
-                            month=1,
-                            day=1,
-                            tzinfo=None
-                        )
-                    ).total_seconds())
-                    _uid = int(attrs['uid'])
                     _tags = {}
 
                     if elem.tag == 'node':
@@ -92,8 +67,8 @@ class XmlParser(Parser):
             elif event == 'end':
                 if elem.tag in ('node', 'way', 'relation'):
                     args = [
-                        _id, _version, _changeset,
-                        _timestamp, _uid, _tags
+                        _id,
+                        _tags
                     ]
 
                     if elem.tag == 'node':
